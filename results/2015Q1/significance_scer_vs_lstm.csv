@@ -1,0 +1,6 @@
+History_months,Features,SCER_mean_PR_AUC,LSTM_mean_PR_AUC,p_value_PR_AUC_bootstrap,Significant_at_0.05
+12,base,0.203,0.216,0.12,No
+24,base,0.287,0.317,0.14,No
+36,base,0.320,0.332,0.46,No
+48,base,0.308,0.309,0.53,No
+48,base+categorical (Exp B),0.317,0.312,0.757,No

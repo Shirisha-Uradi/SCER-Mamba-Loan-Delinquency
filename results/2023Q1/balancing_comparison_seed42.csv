@@ -1,0 +1,5 @@
+Method,Loss,Train_risky,Train_not_risky,F1,PR_AUC
+Focal loss on real ratio,Focal (gamma=2),1198,113098,0.448,0.335
+Random oversampling 1:1,BCE,113098,113098,0.441,0.325
+Hybrid 20k/20k,BCE,20000,20000,0.424,0.314
+Random undersampling 1:1,BCE,1198,1198,0.421,0.283

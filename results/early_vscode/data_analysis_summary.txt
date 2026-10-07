@@ -1,0 +1,116 @@
+
+FANNIE MAE 2023 Q1 DATA ANALYSIS
+=================================
+
+1. DATASET SHAPE
+----------------
+Total unique loans: 210,810
+Static features: 32
+
+The dataset contains borrower, loan and property information together with
+monthly repayment behaviour. This makes it suitable for sequential loan-risk
+prediction.
+
+2. CREDIT SCORE DISTRIBUTION
+----------------------------
+Median Credit Score: 763
+Average Credit Score: 754.87
+
+Most borrowers have credit scores concentrated in the mid-to-high credit
+score range. Credit score is an important borrower-risk characteristic and
+also appears as an important feature in the feature-importance analysis.
+
+3. DTI DISTRIBUTION
+-------------------
+Median DTI: 39%
+Average DTI: 37.52%
+
+DTI measures how much of the borrower's income is used for debt repayments.
+Higher DTI may indicate greater repayment pressure.
+
+4. LTV DISTRIBUTION
+-------------------
+Median LTV: 80%
+Average LTV: 75.32%
+
+LTV represents the loan amount relative to the property value. Higher LTV
+means that the borrower has less equity in the property.
+
+5. ORIGINAL LOAN AMOUNT
+-----------------------
+Median Loan Amount: $280,000
+Average Loan Amount: $312,829
+
+The distribution shows variation in mortgage size across the portfolio.
+
+6. INTEREST RATE DISTRIBUTION
+-----------------------------
+Median Interest Rate: 6.375%
+Average Interest Rate: 6.329%
+
+Interest rate affects the repayment burden and is therefore retained as a
+loan-risk feature.
+
+7. LOAN PURPOSE
+---------------
+Most common loan purpose:
+loan_purpose
+Purchase              166394
+Cash-Out Refinance     33461
+Refinance              10955
+
+The dataset contains different purposes such as purchase and refinance loans,
+allowing differences in loan behaviour to be analysed.
+
+8. PROPERTY TYPE
+----------------
+Most common property types:
+property_type
+Single-Family Home           119435
+Planned Urban Development     67865
+Condominium                   19543
+
+Property type is retained as a categorical feature because different property
+types may show different risk characteristics.
+
+9. OCCUPANCY
+------------
+Most common occupancy types:
+occupancy
+Principal Residence    188055
+Investor                17425
+Second Home              5330
+
+Occupancy distinguishes principal residences, investment properties and
+other occupancy types.
+
+10. TARGET DISTRIBUTION
+-----------------------
+Non-risky observations: 5,866,522 (98.495%)
+Risky observations: 89,657 (1.505%)
+
+The target is highly imbalanced, with significantly fewer risky observations.
+This will need to be considered later during model training and evaluation.
+
+11. FEATURE IMPORTANCE
+----------------------
+Top predictive features:
+
+                             Feature  Importance
+     current_loan_delinquency_status    0.330434
+borrower_credit_score_at_origination    0.194358
+                  current_actual_upb    0.084887
+                        original_upb    0.077076
+                                 dti    0.071309
+
+Feature importance identifies which borrower, loan and repayment variables
+provide the strongest predictive information for future loan risk.
+
+12. CONCLUSION
+--------------
+The analysis confirms that the Fannie Mae dataset contains both useful static
+borrower/loan characteristics and temporal repayment information. The target
+is highly imbalanced, while repayment behaviour and borrower credit
+characteristics provide important signals for future loan-risk prediction.
+
+SCER-Mamba implementation and training have not started at this stage.

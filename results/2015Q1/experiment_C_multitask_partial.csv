@@ -1,0 +1,5 @@
+Model,Seed,Status,Val_PR_AUC,Test_PR_AUC,F1,ROC_AUC
+SCER-Mamba multi-task,42,finished,,0.3176,0.389,0.9335
+SCER-Mamba multi-task,123,interrupted at epoch ~11 (GPU limit),0.2713,,,
+SCER-Mamba multi-task,2026,not run,,,,
+LSTM multi-task,42/123/2026,not run,,,,

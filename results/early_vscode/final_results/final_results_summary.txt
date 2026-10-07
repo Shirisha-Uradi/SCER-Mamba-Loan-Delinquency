@@ -1,0 +1,151 @@
+
+RADARSEQ / SCER-MAMBA FINAL RESULTS SUMMARY
+===========================================
+
+1. DATASET
+----------
+Dataset: Fannie Mae Single-Family Loan Performance Data
+Period: 2023 Q1
+
+Static loans: 210,810
+Sequential input length: 12 months
+Temporal features: 7
+Static features: 12
+
+The loan-risk prediction task is highly imbalanced, with risky loans
+forming only a small proportion of the observations.
+
+
+2. MODELS EVALUATED
+-------------------
+- Logistic Regression
+- Random Forest
+- LSTM Baseline
+- SCER Pre-Mamba
+- SCER-Mamba V2
+- Improved SCER-Mamba variants
+
+
+3. SCER-MAMBA TRAINING IMPROVEMENTS
+-----------------------------------
+The following imbalance-handling approaches were evaluated:
+
+- Weighted Random Sampling
+- Focal Loss
+- Weighted Sampling + Focal Loss
+- Early Stopping
+- Validation-based threshold optimisation
+
+Focal Loss without oversampling produced the strongest training
+configuration among the imbalance-handling experiments.
+
+
+4. ARCHITECTURE ABLATIONS
+-------------------------
+The following SCER-Mamba architecture variants were evaluated:
+
+Experiment C:
+Removed Adaptive Gated Fusion.
+
+Experiment D:
+Removed Static Conditioning.
+
+Experiment E:
+Removed both Static Conditioning and Adaptive Gated Fusion.
+
+Experiment D provided the strongest overall balance on the held-out
+test set.
+
+Final architecture:
+
+Static borrower features
+        |
+Static Encoder
+        |
+        +----------------------+
+                               |
+12-month repayment sequence    |
+        |                      |
+Temporal Projection            |
+        |                      |
+Mamba Encoder                  |
+        |                      |
+Risk-Event Attention           |
+        |                      |
+Temporal Representation -------+
+        |
+Adaptive Gated Fusion
+        |
+Prediction
+
+
+Static conditioning was removed from the final architecture.
+
+
+5. FINAL SCER-MAMBA REPRODUCIBILITY
+-----------------------------------
+Three random seeds were evaluated:
+
+Seed 42
+Seed 123
+Seed 2026
+
+Mean ± Standard Deviation:
+
+Accuracy:
+98.78% ± 0.04%
+
+Precision:
+29.43% ± 0.61%
+
+Recall:
+32.75% ± 1.98%
+
+F1 Score:
+30.97% ± 0.56%
+
+ROC-AUC:
+85.58% ± 0.54%
+
+PR-AUC:
+18.22% ± 1.81%
+
+
+6. MODEL COMPARISON
+-------------------
+LSTM remains a strong sequential benchmark.
+
+The final SCER-Mamba architecture improved over the original
+SCER-Mamba V2 in several minority-class performance measures during
+architecture development.
+
+The reproducibility experiment shows that the final SCER-Mamba
+performance remains reasonably stable across different random seeds.
+
+
+7. IMPORTANT INTERPRETATION
+---------------------------
+Accuracy is approximately 98.8%, but this should not be interpreted
+alone because the dataset is extremely imbalanced.
+
+Precision, Recall, F1 and PR-AUC provide more meaningful information
+about the model's ability to identify risky loans.
+
+The experimental results should therefore be reported using all
+evaluation metrics rather than accuracy alone.
+
+
+8. FINAL STATUS
+---------------
+Data preparation: COMPLETE
+Cleaning and normalisation: COMPLETE
+Target definition: COMPLETE
+Classical baselines: COMPLETE
+Sequential dataset: COMPLETE
+LSTM benchmark: COMPLETE
+SCER architecture: COMPLETE
+Actual Mamba implementation: COMPLETE
+Imbalance experiments: COMPLETE
+Architecture ablation: COMPLETE
+Reproducibility testing: COMPLETE
+Final comparison: COMPLETE

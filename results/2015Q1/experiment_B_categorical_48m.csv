@@ -1,0 +1,4 @@
+Model,Accuracy,Precision,Recall,F1,ROC_AUC,PR_AUC,Note
+SCER-Mamba,0.994,0.353,,0.385,0.941,0.317,mean of 3 seeds
+LSTM,,0.323,,0.395,0.946,0.312,mean of 3 seeds
+XGBoost,,,,,,0.299,single model

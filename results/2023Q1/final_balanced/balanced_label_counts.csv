@@ -1,0 +1,5 @@
+Data,Risky,Not risky,Total,Risky %
+Train - before balancing,1198,113098,114296,1.05
+Train - after balancing,113098,113098,226196,50.0
+Validation (not balanced),257,24235,24492,1.05
+Test (not balanced),257,24235,24492,1.05

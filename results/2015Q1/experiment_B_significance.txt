@@ -1,0 +1,1 @@
+EXPERIMENT B SIGNIFICANCE (48 months, + categorical, 3-seed ensembles): SCER-Mamba PR-AUC 0.3247 vs LSTM 0.3198 | diff +0.0048 | 95% CI [-0.0268, +0.0351] | p = 0.757

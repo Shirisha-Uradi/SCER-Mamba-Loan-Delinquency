@@ -1,0 +1,12 @@
+Feature,Importance
+current_loan_delinquency_status,0.33043388084745023
+borrower_credit_score_at_origination,0.19435770065968241
+current_actual_upb,0.08488730916666105
+original_upb,0.07707554351346443
+dti,0.07130925153450751
+co_borrower_credit_score_at_origination,0.05091971085829097
+current_interest_rate,0.047565383235599855
+original_interest_rate,0.04543728971594966
+original_cltv,0.04418058144903424
+original_ltv,0.04194387043324629
+number_of_borrowers,0.011889478586113392
